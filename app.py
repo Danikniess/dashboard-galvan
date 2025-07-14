@@ -12,9 +12,13 @@ st.set_page_config(layout="wide", page_title="Galvan Intelligence Dashboard")
 # Idealmente, isso viria de um Google Sheets ou banco de dados.
 # Por enquanto, usamos os dados do nosso exemplo.
 @st.cache_data # Cache para performance
+# --- Carregamento dos Dados ---
+# Idealmente, isso viria de um Google Sheets ou banco de dados.
+# Por enquanto, usamos os dados do nosso exemplo.
+@st.cache_data # Cache para performance
 def load_data():
     data = {
-        'Mês': ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul'],
+        'Mês': ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul'] * 2, # <<< LINHA CORRIGIDA
         'Ano': [2024]*7 + [2025]*7,
         'N° de Imóveis Lançados': [110, 95, 125, 130, 140, 120, 115] + [135, 115, 150, 160, 175, 155, 140],
         'N° de Unidades Vendidas': [90, 85, 115, 120, 130, 105, 100] + [110, 105, 140, 155, 170, 145, 130],
